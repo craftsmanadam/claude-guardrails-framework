@@ -6,5 +6,9 @@ sections:
     - Ask when uncertain or actions are risky.
   Workflow:
     - Plan for complex tasks; keep simple tasks lightweight.
+  Build System:
+    - Default to Make; every repo must include a Makefile.
+    - "Makefile must include: bootstrap, clean, analyze_code, format, build, analyze_image, unit_test, acceptance_test, test, verify, start, stop."
+    - Makefile should be scaffolded during project initialization.
   Quality:
     - Add tests when behavior changes are non-trivial.

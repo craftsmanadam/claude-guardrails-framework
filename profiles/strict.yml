@@ -8,6 +8,10 @@ sections:
   Workflow:
     - Use planning for multi-step tasks and track progress.
     - Prefer minimal changes with clear rationale.
+  Build System:
+    - Default to Make; every repo must include a Makefile.
+    - "Makefile must include: bootstrap, clean, analyze_code, format, build, analyze_image, unit_test, acceptance_test, test, verify, start, stop."
+    - Makefile should be scaffolded during project initialization.
   Quality:
     - Favor tests and validation where feasible.
     - Document non-obvious decisions.
