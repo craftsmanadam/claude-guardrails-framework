@@ -1,0 +1,10 @@
+name: moderate
+kind: profile
+sections:
+  Principles:
+    - Balance safety with productivity.
+    - Ask when uncertain or actions are risky.
+  Workflow:
+    - Plan for complex tasks; keep simple tasks lightweight.
+  Quality:
+    - Add tests when behavior changes are non-trivial.

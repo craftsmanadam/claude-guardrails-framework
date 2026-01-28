@@ -1,0 +1,12 @@
+name: strict-python-microservice
+profile: strict
+targets:
+  - base
+  - python
+  - microservice
+packs:
+  - security
+  - privacy
+  - compliance
+  - performance
+  - style

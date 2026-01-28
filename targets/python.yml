@@ -1,0 +1,7 @@
+name: python
+kind: target
+sections:
+  Python:
+    - Prefer virtualenv/venv and pin dependencies.
+    - Use type hints for public interfaces when practical.
+    - Avoid global state; keep functions pure where possible.

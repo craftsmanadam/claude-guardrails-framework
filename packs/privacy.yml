@@ -1,0 +1,7 @@
+name: privacy
+kind: pack
+sections:
+  Privacy:
+    - Avoid handling sensitive data unless required.
+    - Redact PII in examples and logs.
+    - Prefer data minimization practices.

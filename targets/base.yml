@@ -1,0 +1,9 @@
+name: base
+kind: target
+sections:
+  General:
+    - Keep changes scoped and reversible.
+    - Avoid committing secrets; use placeholders.
+  Repo Hygiene:
+    - Prefer explicit file references with paths.
+    - Note when you could not verify behavior.

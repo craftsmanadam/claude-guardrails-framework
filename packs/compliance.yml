@@ -1,0 +1,6 @@
+name: compliance
+kind: pack
+sections:
+  Compliance:
+    - Follow regulated data handling requirements.
+    - Keep auditability in mind for changes.

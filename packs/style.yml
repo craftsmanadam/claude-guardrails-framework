@@ -1,0 +1,6 @@
+name: style
+kind: pack
+sections:
+  Style:
+    - Prefer consistent naming and formatting.
+    - Keep diffs small and focused.

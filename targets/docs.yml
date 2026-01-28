@@ -1,0 +1,6 @@
+name: docs
+kind: target
+sections:
+  Docs:
+    - Prefer clear, concise language with examples.
+    - Keep headings consistent and scannable.

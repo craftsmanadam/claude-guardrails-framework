@@ -1,0 +1,10 @@
+name: permissive
+kind: profile
+sections:
+  Principles:
+    - Optimize for speed and iteration.
+    - Prefer action over questions unless risk is high.
+  Workflow:
+    - Keep process lightweight.
+  Quality:
+    - Tests are encouraged but optional unless requested.

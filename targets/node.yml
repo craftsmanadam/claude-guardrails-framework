@@ -1,0 +1,7 @@
+name: node
+kind: target
+sections:
+  Node:
+    - Prefer npm/pnpm lockfiles; avoid unpinned installs.
+    - Use ESM unless project dictates otherwise.
+    - Keep scripts deterministic and cross-platform where possible.

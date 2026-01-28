@@ -1,0 +1,7 @@
+name: microservice
+kind: target
+sections:
+  Microservices:
+    - Prefer explicit service boundaries and ownership.
+    - Require health checks and readiness probes.
+    - Treat configuration as code; document env vars.

@@ -1,0 +1,6 @@
+name: performance
+kind: pack
+sections:
+  Performance:
+    - Avoid obvious N+1 or unbounded loops.
+    - Prefer efficient defaults; measure before optimizing.

@@ -1,0 +1,7 @@
+name: security
+kind: pack
+sections:
+  Security:
+    - Never introduce hard-coded secrets or tokens.
+    - Prefer least-privilege access patterns.
+    - Flag risky changes and request confirmation.

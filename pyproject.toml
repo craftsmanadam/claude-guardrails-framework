@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "claude-guardrails-framework"
+version = "0.1.0"
+description = "Composable framework for generating organization-wide CLAUDE.md guardrails"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+pyyaml = "^6.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"

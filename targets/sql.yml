@@ -1,0 +1,6 @@
+name: sql
+kind: target
+sections:
+  SQL:
+    - Avoid destructive queries without explicit confirmation.
+    - Prefer migrations; avoid manual schema drift.
