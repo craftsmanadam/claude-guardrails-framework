@@ -42,6 +42,7 @@ poetry run python scripts/compose.py examples/strict-python-microservice.yml out
 ## Files
 - `templates/claude.md.tmpl` is a simple Markdown output template.
 - `templates/Makefile.scaffold` is the standard Makefile scaffold required by strict/moderate profiles.
+- `templates/pyproject.python.ruff.snippet.toml` provides opinionated ruff defaults for Python.
 - `scripts/compose.py` composes YAML inputs into a single `CLAUDE.md`.
 
 ## Notes

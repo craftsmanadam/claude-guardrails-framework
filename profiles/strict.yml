@@ -14,6 +14,8 @@ sections:
     - Makefile should be scaffolded during project initialization.
   Analysis:
     - Always use static analysis and security scanning tools.
+  Security:
+    - Always use security scanning tools.
   Quality:
     - Always generate unit tests for changes.
     - Target unit test coverage of 90% or better.

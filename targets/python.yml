@@ -8,5 +8,8 @@ sections:
   Analysis:
     - "Static analysis: ruff."
     - "Security scanning: bandit."
+    - "Ruff select: E, W, F, PL, I, FAST, ASYNC, B, INP, PT, Q, SIM, C90, FURB, RUF, TRY."
+    - "Ruff per-file-ignores: \"{tests}/**/*\" = [\"S\"] (ignore security scans in tests)."
+    - "Place ruff configuration in pyproject.toml."
   Testing:
     - "Unit testing: pytest."
