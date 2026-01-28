@@ -7,4 +7,5 @@ sections:
   Workflow:
     - Keep process lightweight.
   Quality:
-    - Tests are encouraged but optional unless requested.
+    - Tests are strongly encouraged but optional unless requested.
+    - Target unit test coverage of 40% or better when tests are added.

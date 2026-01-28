@@ -13,5 +13,8 @@ sections:
     - "Makefile must include: bootstrap, clean, analyze_code, format, build, analyze_image, unit_test, acceptance_test, test, verify, start, stop."
     - Makefile should be scaffolded during project initialization.
   Quality:
-    - Favor tests and validation where feasible.
+    - Always generate unit tests for changes.
+    - Target unit test coverage of 90% or better.
+    - Run unit tests after each code change.
+    - If a test cannot be written, ask for guidance before proceeding.
     - Document non-obvious decisions.
