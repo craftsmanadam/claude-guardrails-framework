@@ -6,10 +6,15 @@ sections:
     - Use type hints for public interfaces when practical.
     - Avoid global state; keep functions pure where possible.
   Analysis:
-    - "Static analysis: ruff."
-    - "Security scanning: bandit."
-    - "Ruff select: E, W, F, PL, I, FAST, ASYNC, B, INP, PT, Q, SIM, C90, FURB, RUF, TRY."
-    - "Ruff per-file-ignores: \"{tests}/**/*\" = [\"S\"] (ignore security scans in tests)."
-    - "Place ruff configuration in pyproject.toml."
+    - text: "Static analysis: ruff."
+      profiles: [strict, moderate]
+    - text: "Security scanning: bandit."
+      profiles: [strict, moderate]
+    - text: "Ruff select: E, W, F, PL, I, FAST, ASYNC, B, INP, PT, Q, SIM, C90, FURB, RUF, TRY."
+      profiles: [strict, moderate]
+    - text: "Ruff per-file-ignores: \"{tests}/**/*\" = [\"S\"] (ignore security scans in tests)."
+      profiles: [strict, moderate]
+    - text: "Place ruff configuration in pyproject.toml."
+      profiles: [strict, moderate]
   Testing:
     - "Unit testing: pytest."

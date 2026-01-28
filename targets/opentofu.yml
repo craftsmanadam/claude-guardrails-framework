@@ -5,8 +5,12 @@ sections:
     - Use modules with clear input/output contracts.
     - Keep state remote and encrypted; avoid local state for shared environments.
     - Prefer plan/apply separation in CI.
+    - Infra repos may implement non-applicable Makefile targets as no-ops.
   Analysis:
-    - "Static analysis: tflint."
-    - "Security scanning: tfsec."
+    - text: "Static analysis: tflint."
+      profiles: [strict, moderate]
+    - text: "Security scanning: tfsec."
+      profiles: [strict, moderate]
   Testing:
     - "Unit testing: tofu test."
+    - "Coverage targets are often N/A for OpenTofu; call out limitations and request an explicit exception."

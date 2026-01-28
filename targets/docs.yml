@@ -5,7 +5,9 @@ sections:
     - Prefer clear, concise language with examples.
     - Keep headings consistent and scannable.
   Analysis:
-    - "Static analysis: markdownlint."
-    - "Style/linting: vale."
+    - text: "Static analysis: markdownlint."
+      profiles: [strict, moderate]
+    - text: "Style/linting: vale."
+      profiles: [strict, moderate]
   Testing:
     - "Documentation testing: markdownlint."

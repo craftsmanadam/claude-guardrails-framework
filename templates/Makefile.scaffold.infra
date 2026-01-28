@@ -1,0 +1,38 @@
+# Makefile scaffold for infrastructure repos
+# Customize commands per repo; keep target names stable.
+
+.PHONY: bootstrap clean analyze_code format build analyze_image unit_test acceptance_test test verify start stop
+
+bootstrap:
+	@echo "Bootstrap: install tools, deps, and baseline config"
+
+clean:
+	@echo "Clean: remove local artifacts (e.g., .terraform, build outputs)"
+
+analyze_code:
+	@echo "Analyze code: static analysis and security scans (e.g., tflint, tfsec)"
+
+format:
+	@echo "Format: autoformat code (e.g., tofu fmt)"
+
+build:
+	@echo "Build: produce deployable artifacts or plans"
+
+analyze_image:
+	@echo "Analyze image: no-op unless images are produced"
+
+unit_test:
+	@echo "Unit test: run unit tests (e.g., tofu test)"
+
+acceptance_test:
+	@echo "Acceptance test: run integration/plan tests"
+
+test: unit_test acceptance_test
+
+verify: clean analyze_code unit_test acceptance_test
+
+start:
+	@echo "Start: no-op unless a local runtime is required"
+
+stop:
+	@echo "Stop: no-op unless a local runtime is required"

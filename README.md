@@ -2,6 +2,65 @@
 
 A composable framework for generating organization-wide `CLAUDE.md` guardrails from profiles, targets, and packs.
 
+## Lifecycle overview
+Our goal is to try and get our tools to work like professionals.  While we must understand that the speed we can produce now is at a rate we can throw the resultant away (who cares if I throw away a whole project that only cost us $7), when we choose to keep it then it should meet our standards.  We assume in this project a lifecycle like the one below.
+
+```
+┌─────────────────────────────────────────────────┐
+│             Project Initialization              │
+└────────────────┬────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────┐
+│              Active Work Cycle                  │
+│                                                 │
+│  ┌──────────────────────────────────────────┐   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |        Understand problem          |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |         TDD Development            |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |           Analyze Code             |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |         Analyze Security           |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |        Execute Unit Tests          |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |     Compose Artifact (Build)       |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |     Execute Acceptance Tests       |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |     Run Security Scan (Trivy)      |  │   │
+│  │  └────────────────┬───────────────────┘  │   │
+│  │                   ▼                      │   │
+│  │  ┌────────────────────────────────────┐  │   │
+│  │  |              Commit                |  │   │
+│  │  └────────────────────────────────────┘  │   │
+│  │                                          │   │
+│  └──────────────────────────────────────────┘   │
+│                                                 │
+└────────────────┬────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────┐
+│                   Maintainence                  │
+└─────────────────────────────────────────────────┘
+```
+
 ## Why
 Teams need consistent, auditable developer guardrails. This repo defines:
 - **Profiles**: strict / moderate / permissive baselines.
@@ -25,6 +84,7 @@ profiles/   # baseline strictness
 - **Targets** add stack-specific rules (python, node, docs, sql, opentofu, etc.) and declare default analysis/testing tools.
 - **Packs** add cross-cutting concerns (security, privacy, compliance, performance, style).
 - Output order: **profile → targets → packs → team overrides**.
+- Rules may be scoped to specific profiles using `profiles: [strict, moderate, permissive]` within a target or pack.
 
 ## Quick start
 ```
@@ -41,7 +101,9 @@ poetry run python scripts/compose.py examples/strict-python-microservice.yml out
 
 ## Files
 - `templates/claude.md.tmpl` is a simple Markdown output template.
-- `templates/Makefile.scaffold` is the standard Makefile scaffold required by strict/moderate profiles.
+- `templates/Makefile.scaffold` is the legacy generic Makefile scaffold.
+- `templates/Makefile.scaffold.app` is the application Makefile scaffold.
+- `templates/Makefile.scaffold.infra` is the infrastructure Makefile scaffold (may include no-op targets).
 - `templates/pyproject.python.ruff.snippet.toml` provides opinionated ruff defaults for Python.
 - `scripts/compose.py` composes YAML inputs into a single `CLAUDE.md`.
 

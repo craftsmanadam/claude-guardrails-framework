@@ -1,0 +1,38 @@
+# Makefile scaffold for application repos
+# Customize commands per repo; keep target names stable.
+
+.PHONY: bootstrap clean analyze_code format build analyze_image unit_test acceptance_test test verify start stop
+
+bootstrap:
+	@echo "Bootstrap: install tools, deps, and baseline config"
+
+clean:
+	@echo "Clean: remove local artifacts (e.g., .venv, containers, build outputs)"
+
+analyze_code:
+	@echo "Analyze code: static analysis and security scans (e.g., ruff, bandit)"
+
+format:
+	@echo "Format: autoformat code (e.g., ruff format)"
+
+build:
+	@echo "Build: produce build artifacts (e.g., docker image)"
+
+analyze_image:
+	@echo "Analyze image: scan built image (e.g., trivy)"
+
+unit_test:
+	@echo "Unit test: run unit tests"
+
+acceptance_test:
+	@echo "Acceptance test: run acceptance/integration tests (e.g., docker compose)"
+
+test: unit_test acceptance_test
+
+verify: clean analyze_code unit_test acceptance_test
+
+start:
+	@echo "Start: run app locally (e.g., docker or docker compose)"
+
+stop:
+	@echo "Stop: halt local runtime (e.g., docker or docker compose)"

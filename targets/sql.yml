@@ -5,6 +5,7 @@ sections:
     - Avoid destructive queries without explicit confirmation.
     - Prefer migrations; avoid manual schema drift.
   Analysis:
-    - "Static analysis: sqlfluff."
+    - text: "Static analysis: sqlfluff."
+      profiles: [strict, moderate]
   Testing:
     - "Unit testing: pgTAP."

@@ -6,7 +6,9 @@ sections:
     - Use ESM unless project dictates otherwise.
     - Keep scripts deterministic and cross-platform where possible.
   Analysis:
-    - "Static analysis: eslint."
-    - "Security scanning: npm audit."
+    - text: "Static analysis: eslint."
+      profiles: [strict, moderate]
+    - text: "Security scanning: npm audit."
+      profiles: [strict, moderate]
   Testing:
     - "Unit testing: jest."

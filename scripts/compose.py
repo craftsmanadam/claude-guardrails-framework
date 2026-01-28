@@ -27,18 +27,38 @@ def load_unit(kind: str, name: str):
     return data
 
 
-def merge_sections(units):
+def normalize_item(item):
+    if isinstance(item, str):
+        return {"text": item, "profiles": None}
+    if isinstance(item, dict) and "text" in item:
+        profiles = item.get("profiles")
+        return {"text": item["text"], "profiles": profiles}
+    raise ValueError(f"Invalid rule item: {item}")
+
+
+def include_item(item, active_profile: str):
+    profiles = item.get("profiles")
+    if not profiles:
+        return True
+    return active_profile in profiles
+
+
+def merge_sections(units, active_profile: str):
     merged = {}
     seen = set()
     for unit in units:
         for heading, items in (unit.get("sections") or {}).items():
             bucket = merged.setdefault(heading, [])
             for item in items:
-                key = (heading, item)
+                normalized = normalize_item(item)
+                if not include_item(normalized, active_profile):
+                    continue
+                text = normalized["text"]
+                key = (heading, text)
                 if key in seen:
                     continue
                 seen.add(key)
-                bucket.append(item)
+                bucket.append(text)
     return merged
 
 
@@ -82,7 +102,7 @@ def main(argv):
     units.extend(load_unit("target", t) for t in targets)
     units.extend(load_unit("pack", p) for p in packs)
 
-    merged = merge_sections(units)
+    merged = merge_sections(units, profile_name)
     sections = render_sections(merged)
 
     template_path = BASE_DIR / "templates" / "claude.md.tmpl"

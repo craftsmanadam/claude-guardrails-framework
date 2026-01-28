@@ -9,7 +9,8 @@ sections:
   Build System:
     - Default to Make; every repo must include a Makefile.
     - "Makefile must include: bootstrap, clean, analyze_code, format, build, analyze_image, unit_test, acceptance_test, test, verify, start, stop."
-    - Makefile should be scaffolded during project initialization.
+    - Makefile should be scaffolded during project initialization (app or infra variant as appropriate).
+    - Infra repos may implement analyze_image/start/stop as no-ops when not applicable.
   Analysis:
     - Always use static analysis and security scanning tools.
   Security:
@@ -19,3 +20,4 @@ sections:
     - Target unit test coverage of 70% or better.
     - Run unit tests after each code change.
     - If a test cannot be written, ask for guidance before proceeding.
+    - Infra targets may request coverage exceptions when the metric is not meaningful.
