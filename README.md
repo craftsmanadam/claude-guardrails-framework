@@ -2,6 +2,14 @@
 
 A composable framework for generating organization-wide `CLAUDE.md` guardrails from profiles, targets, and packs.
 
+## Why
+Teams need consistent, auditable developer guardrails. This repo defines:
+- **Profiles**: strict / moderate / permissive baselines.
+- **Targets**: domain or stack-specific rules (base, python, node, docs, sql, opentofu, etc.), including default analysis and testing tools.
+- **Packs**: focused rule bundles (security, privacy, compliance, performance, style, etc.).
+
+You can compose these into a single global `CLAUDE.md` for a team, e.g. `strict + python + microservice + security + privacy`.
+
 ## Lifecycle overview
 Our goal is to ensure our tools behave professionally. We can move quickly and discard cheap experiments, but when we decide to keep a project it should meet our standards. We assume the lifecycle below.
 
@@ -60,14 +68,6 @@ Our goal is to ensure our tools behave professionally. We can move quickly and d
 │                    Maintainence                  │
 └──────────────────────────────────────────────────┘
 ```
-
-## Why
-Teams need consistent, auditable developer guardrails. This repo defines:
-- **Profiles**: strict / moderate / permissive baselines.
-- **Targets**: domain or stack-specific rules (base, python, node, docs, sql, opentofu, etc.), including default analysis and testing tools.
-- **Packs**: focused rule bundles (security, privacy, compliance, performance, style, etc.).
-
-You can compose these into a single global `CLAUDE.md` for a team, e.g. `strict + python + microservice + security + privacy`.
 
 ## Structure
 ```
