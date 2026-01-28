@@ -4,3 +4,7 @@ sections:
   SQL:
     - Avoid destructive queries without explicit confirmation.
     - Prefer migrations; avoid manual schema drift.
+  Analysis:
+    - "Static analysis: sqlfluff."
+  Testing:
+    - "Unit testing: pgTAP."

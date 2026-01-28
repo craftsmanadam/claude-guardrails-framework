@@ -6,6 +6,8 @@ sections:
     - Prefer action over questions unless risk is high.
   Workflow:
     - Keep process lightweight.
+  Analysis:
+    - Ask during project initialization whether to enable static analysis and security scanning.
   Quality:
     - Tests are strongly encouraged but optional unless requested.
     - Target unit test coverage of 40% or better when tests are added.

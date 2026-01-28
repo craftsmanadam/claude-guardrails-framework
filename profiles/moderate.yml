@@ -10,6 +10,8 @@ sections:
     - Default to Make; every repo must include a Makefile.
     - "Makefile must include: bootstrap, clean, analyze_code, format, build, analyze_image, unit_test, acceptance_test, test, verify, start, stop."
     - Makefile should be scaffolded during project initialization.
+  Analysis:
+    - Always use static analysis and security scanning tools.
   Quality:
     - Always generate unit tests for changes.
     - Target unit test coverage of 70% or better.

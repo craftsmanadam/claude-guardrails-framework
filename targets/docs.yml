@@ -4,3 +4,8 @@ sections:
   Docs:
     - Prefer clear, concise language with examples.
     - Keep headings consistent and scannable.
+  Analysis:
+    - "Static analysis: markdownlint."
+    - "Style/linting: vale."
+  Testing:
+    - "Documentation testing: markdownlint."

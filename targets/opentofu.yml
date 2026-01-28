@@ -1,0 +1,12 @@
+name: opentofu
+kind: target
+sections:
+  OpenTofu:
+    - Use modules with clear input/output contracts.
+    - Keep state remote and encrypted; avoid local state for shared environments.
+    - Prefer plan/apply separation in CI.
+  Analysis:
+    - "Static analysis: tflint."
+    - "Security scanning: tfsec."
+  Testing:
+    - "Unit testing: tofu test."

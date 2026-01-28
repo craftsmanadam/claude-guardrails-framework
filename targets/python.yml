@@ -5,3 +5,8 @@ sections:
     - Prefer virtualenv/venv and pin dependencies.
     - Use type hints for public interfaces when practical.
     - Avoid global state; keep functions pure where possible.
+  Analysis:
+    - "Static analysis: ruff."
+    - "Security scanning: bandit."
+  Testing:
+    - "Unit testing: pytest."

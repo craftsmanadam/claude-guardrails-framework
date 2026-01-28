@@ -5,7 +5,7 @@ A composable framework for generating organization-wide `CLAUDE.md` guardrails f
 ## Why
 Teams need consistent, auditable developer guardrails. This repo defines:
 - **Profiles**: strict / moderate / permissive baselines.
-- **Targets**: domain or stack-specific rules (base, python, node, docs, sql, etc.).
+- **Targets**: domain or stack-specific rules (base, python, node, docs, sql, opentofu, etc.), including default analysis and testing tools.
 - **Packs**: focused rule bundles (security, privacy, compliance, performance, style, etc.).
 
 You can compose these into a single global `CLAUDE.md` for a team, e.g. `strict + python + microservice + security + privacy`.
@@ -22,7 +22,7 @@ profiles/   # baseline strictness
 
 ## Composition model
 - **Profile** sets the baseline behavior and default safety posture.
-- **Targets** add stack-specific rules (python, node, docs, sql, etc.).
+- **Targets** add stack-specific rules (python, node, docs, sql, opentofu, etc.) and declare default analysis/testing tools.
 - **Packs** add cross-cutting concerns (security, privacy, compliance, performance, style).
 - Output order: **profile → targets → packs → team overrides**.
 
