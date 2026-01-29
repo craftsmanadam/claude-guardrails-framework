@@ -4,6 +4,8 @@ sections:
   SQL:
     - Avoid destructive queries without explicit confirmation.
     - Prefer migrations; avoid manual schema drift.
+  Security:
+    - Security scanning is N/A for SQL-only repos; rely on app-level security scanning where applicable.
   Analysis:
     - text: "Static analysis: sqlfluff."
       when:
