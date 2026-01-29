@@ -8,16 +8,18 @@ sections:
     - Infra repos may implement non-applicable Makefile targets as no-ops.
   Analysis:
     - text: "Static analysis: tflint."
-      profiles: [strict, moderate]
-    - text: "Static analysis: tflint."
-      profiles: [permissive]
       when:
+        profiles: [strict, moderate]
+    - text: "Static analysis: tflint."
+      when:
+        profiles: [permissive]
         packs: [analysis]
     - text: "Security scanning: tfsec."
-      profiles: [strict, moderate]
-    - text: "Security scanning: tfsec."
-      profiles: [permissive]
       when:
+        profiles: [strict, moderate]
+    - text: "Security scanning: tfsec."
+      when:
+        profiles: [permissive]
         packs: [security]
   Testing:
     - "Unit testing: tofu test."

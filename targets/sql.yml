@@ -6,10 +6,11 @@ sections:
     - Prefer migrations; avoid manual schema drift.
   Analysis:
     - text: "Static analysis: sqlfluff."
-      profiles: [strict, moderate]
-    - text: "Static analysis: sqlfluff."
-      profiles: [permissive]
       when:
+        profiles: [strict, moderate]
+    - text: "Static analysis: sqlfluff."
+      when:
+        profiles: [permissive]
         packs: [analysis]
   Testing:
     - "Unit testing: pgTAP."

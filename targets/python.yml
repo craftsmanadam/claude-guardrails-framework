@@ -8,34 +8,39 @@ sections:
     - Prefer pydantic for data validation and pydantic-settings for configuration.
   Analysis:
     - text: "Static analysis: ruff."
-      profiles: [strict, moderate]
-    - text: "Static analysis: ruff."
-      profiles: [permissive]
       when:
+        profiles: [strict, moderate]
+    - text: "Static analysis: ruff."
+      when:
+        profiles: [permissive]
         packs: [analysis]
     - text: "Security scanning: bandit."
-      profiles: [strict, moderate]
-    - text: "Security scanning: bandit."
-      profiles: [permissive]
       when:
+        profiles: [strict, moderate]
+    - text: "Security scanning: bandit."
+      when:
+        profiles: [permissive]
         packs: [security]
     - text: "Ruff select: E, W, F, PL, I, FAST, ASYNC, B, INP, PT, Q, SIM, C90, FURB, RUF, TRY."
-      profiles: [strict, moderate]
+      when:
+        profiles: [strict, moderate]
     - text: "Ruff select: E, W, F, PL, I, FAST, ASYNC, B, INP, PT, Q, SIM, C90, FURB, RUF, TRY."
-      profiles: [permissive]
       when:
+        profiles: [permissive]
         packs: [analysis]
     - text: "Ruff per-file-ignores: \"{tests}/**/*\" = [\"S\"] (ignore security scans in tests)."
-      profiles: [strict, moderate]
-    - text: "Ruff per-file-ignores: \"{tests}/**/*\" = [\"S\"] (ignore security scans in tests)."
-      profiles: [permissive]
       when:
+        profiles: [strict, moderate]
+    - text: "Ruff per-file-ignores: \"{tests}/**/*\" = [\"S\"] (ignore security scans in tests)."
+      when:
+        profiles: [permissive]
         packs: [analysis]
     - text: "Place ruff configuration in pyproject.toml."
-      profiles: [strict, moderate]
-    - text: "Place ruff configuration in pyproject.toml."
-      profiles: [permissive]
       when:
+        profiles: [strict, moderate]
+    - text: "Place ruff configuration in pyproject.toml."
+      when:
+        profiles: [permissive]
         packs: [analysis]
   Testing:
     - "Unit testing: pytest."

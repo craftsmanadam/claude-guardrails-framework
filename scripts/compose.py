@@ -31,30 +31,29 @@ def load_unit(kind: str, name: str):
 
 def normalize_item(item):
     if isinstance(item, str):
-        return {"text": item, "profiles": None, "when": None, "exclude_when": None}
+        return {"text": item, "when": None, "exclude_when": None}
     if isinstance(item, dict) and "text" in item:
-        profiles = item.get("profiles")
         when = item.get("when")
         exclude_when = item.get("exclude_when")
         return {
             "text": item["text"],
-            "profiles": profiles,
             "when": when,
             "exclude_when": exclude_when,
         }
     raise ValueError(f"Invalid rule item: {item}")
 
 
-def include_item(item, active_profile: str):
-    profiles = item.get("profiles")
-    if not profiles:
-        return True
-    return active_profile in profiles
-
-
-def when_satisfied(when, active_targets, active_packs):
+def when_satisfied(when, active_profile, active_targets, active_packs):
     if not when:
         return True
+    profiles = when.get("profiles")
+    if profiles:
+        return active_profile in profiles and when_satisfied(
+            {k: v for k, v in when.items() if k != "profiles"},
+            active_profile,
+            active_targets,
+            active_packs,
+        )
     targets = when.get("targets")
     if targets:
         return all(t in active_targets for t in targets)
@@ -84,9 +83,7 @@ def merge_sections(units, active_profile: str, active_targets, active_packs):
             bucket = merged.setdefault(heading, [])
             for item in items:
                 normalized = normalize_item(item)
-                if not include_item(normalized, active_profile):
-                    continue
-                if not when_satisfied(normalized.get("when"), active_targets, active_packs):
+                if not when_satisfied(normalized.get("when"), active_profile, active_targets, active_packs):
                     continue
                 if exclude_satisfied(normalized.get("exclude_when"), active_targets, active_packs):
                     continue
