@@ -10,18 +10,13 @@ Teams need consistent, auditable developer guardrails. This repo defines:
 
 You can compose these into a single global `CLAUDE.md` for a team, e.g. `strict + python + microservice + security + privacy`.
 
-## Engineering principles (strict + moderate)
-- Single Responsibility Principle (SRP)
-- DRY (Do Not Repeat Yourself)
-- Separation of concerns
-- Encapsulation
-- High cohesion / low coupling
-- Explicit over implicit
-- Testability as a first-class concern
 
-## Additional principles (strict only)
-- Fail fast
-- Composition over inheritance
+## Outputs
+- Generated `CLAUDE.md` files are intended to be installed as global guardrails or committed to repos as needed.
+- Example (global install):
+  - `cp out/CLAUDE.md ~/.config/claude/CLAUDE.md`
+- Example (repo install):
+  - `cp out/CLAUDE.md ./CLAUDE.md`
 
 ## Lifecycle overview
 Our goal is to ensure our tools behave professionally. We can move quickly and discard cheap experiments, but when we decide to keep a project it should meet our standards. We assume the lifecycle below.
@@ -104,9 +99,6 @@ profiles/   # baseline strictness
 - Rules may be excluded with `exclude_when`, for example:
   - `exclude_when: { targets: [sql] }`
 
-## Language defaults
-- **Python**: prefer Poetry for dependency management, pydantic for data validation, and pydantic-settings for configuration.
-
 ## Quick start
 ```
 poetry install
@@ -154,6 +146,22 @@ packs:
 - **Exception process**: scoped, time-boxed waivers with justification.
 - **Tooling policy**: allow/deny list for external tools and network access.
 
+## Engineering principles (strict + moderate)
+- Single Responsibility Principle (SRP)
+- DRY (Do Not Repeat Yourself)
+- Separation of concerns
+- Encapsulation
+- High cohesion / low coupling
+- Explicit over implicit
+- Testability as a first-class concern
+
+## Additional principles (strict only)
+- Fail fast
+- Composition over inheritance
+
+## Language defaults
+- **Python**: prefer Poetry for dependency management, pydantic for data validation, and pydantic-settings for configuration.
+
 ## Files
 - `templates/claude.md.tmpl` is a simple Markdown output template.
 - `templates/Makefile.scaffold` is the legacy generic Makefile scaffold.
@@ -162,13 +170,5 @@ packs:
 - These Makefile scaffolds are examples of intent for humans; they are not auto-applied.
 - `templates/pyproject.python.ruff.snippet.toml` provides opinionated ruff defaults for Python and is a copy/paste reference (not auto-applied).
 - `scripts/compose.py` composes YAML inputs into a single `CLAUDE.md`.
-
-## Outputs
-- Generated `CLAUDE.md` files are intended to be installed as global guardrails or committed to repos as needed.
-- Example (global install):
-  - `cp out/CLAUDE.md ~/.config/claude/CLAUDE.md`
-- Example (repo install):
-  - `cp out/CLAUDE.md ./CLAUDE.md`
-
 ## Notes
 This is an initializer scaffold. Extend the taxonomy, add targets/packs, and tailor wording to your org.
