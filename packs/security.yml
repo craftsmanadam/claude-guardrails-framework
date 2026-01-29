@@ -5,3 +5,7 @@ sections:
     - Never introduce hard-coded secrets or tokens.
     - Prefer least-privilege access patterns.
     - Flag risky changes and request confirmation.
+    - text: "Trivy scan required for built image."
+      when:
+        profiles: [strict, moderate]
+        targets: [microservice]

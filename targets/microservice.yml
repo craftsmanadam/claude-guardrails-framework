@@ -5,6 +5,12 @@ sections:
     - Prefer explicit service boundaries and ownership.
     - Require health checks and readiness probes.
     - Treat configuration as code; document env vars.
+    - Follow 12-factor app principles.
+    - "12-factor: Config via environment (no config in code)."
+    - "12-factor: Stateless, disposable processes."
+    - "12-factor: Logs as event streams (stdout/stderr)."
+    - "12-factor: Strict build/release/run separation."
+    - "12-factor: Backing services treated as attached resources."
     - Build acceptance tests from the composed container image.
     - Use test doubles for external dependencies (e.g., containerized SQL, mock OAuth2, mock API servers).
     - text: "If using Python, prefer FastAPI for service interfaces."

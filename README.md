@@ -10,6 +10,19 @@ Teams need consistent, auditable developer guardrails. This repo defines:
 
 You can compose these into a single global `CLAUDE.md` for a team, e.g. `strict + python + microservice + security + privacy`.
 
+## Engineering principles (strict + moderate)
+- Single Responsibility Principle (SRP)
+- DRY (Do Not Repeat Yourself)
+- Separation of concerns
+- Encapsulation
+- High cohesion / low coupling
+- Explicit over implicit
+- Testability as a first-class concern
+
+## Additional principles (strict only)
+- Fail fast
+- Composition over inheritance
+
 ## Lifecycle overview
 Our goal is to ensure our tools behave professionally. We can move quickly and discard cheap experiments, but when we decide to keep a project it should meet our standards. We assume the lifecycle below.
 

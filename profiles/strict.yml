@@ -5,6 +5,15 @@ sections:
     - Prefer safety and compliance over speed or convenience.
     - Require explicit user confirmation for destructive actions.
     - Avoid making assumptions; ask for clarification when needed.
+    - Follow Single Responsibility Principle (SRP).
+    - Follow DRY (Do Not Repeat Yourself).
+    - Favor separation of concerns.
+    - Prefer encapsulation and clear boundaries.
+    - Aim for high cohesion and low coupling.
+    - Prefer explicit over implicit behavior.
+    - Fail fast on invalid states or inputs.
+    - Prefer composition over inheritance.
+    - Treat testability as a first-class concern.
   Workflow:
     - Use planning for multi-step tasks and track progress.
     - Prefer minimal changes with clear rationale.

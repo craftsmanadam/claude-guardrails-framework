@@ -4,6 +4,13 @@ sections:
   Principles:
     - Balance safety with productivity.
     - Ask when uncertain or actions are risky.
+    - Follow Single Responsibility Principle (SRP).
+    - Follow DRY (Do Not Repeat Yourself).
+    - Favor separation of concerns.
+    - Prefer encapsulation and clear boundaries.
+    - Aim for high cohesion and low coupling.
+    - Prefer explicit over implicit behavior.
+    - Treat testability as a first-class concern.
   Workflow:
     - Plan for complex tasks; keep simple tasks lightweight.
   Build System:
