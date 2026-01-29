@@ -78,7 +78,7 @@ Our goal is to ensure our tools behave professionally. We can move quickly and d
                        │ 
                        ▼ 
 ┌──────────────────────────────────────────────────┐
-│                    Maintainence                  │
+│                    Maintenance                   │
 └──────────────────────────────────────────────────┘
 ```
 
@@ -97,10 +97,10 @@ profiles/   # baseline strictness
 - **Targets** add stack-specific rules (python, node, docs, sql, opentofu, etc.) and declare default analysis/testing tools.
 - **Packs** add cross-cutting concerns (security, privacy, compliance, performance, style).
 - Output order: **profile → targets → packs → team overrides**.
-- Rules may be scoped to specific profiles using `profiles: [strict, moderate, permissive]` within a target or pack.
 - Rules may also be conditional with `when`, for example:
   - `when: { targets: [python, microservice] }`
   - `when: { packs: [analysis] }`
+  - `when: { profiles: [strict, moderate] }`
 - Rules may be excluded with `exclude_when`, for example:
   - `exclude_when: { targets: [sql] }`
 
@@ -111,6 +111,34 @@ profiles/   # baseline strictness
 ```
 poetry install
 poetry run python scripts/compose.py examples/strict-python-microservice.yml out/CLAUDE.md
+```
+
+## How to compose
+Minimal composition file:
+```
+name: strict-python-microservice
+profile: strict
+targets:
+  - base
+  - python
+  - microservice
+packs:
+  - security
+  - privacy
+  - compliance
+  - performance
+  - style
+```
+
+Permissive with analysis enabled:
+```
+name: permissive-python-analysis
+profile: permissive
+targets:
+  - base
+  - python
+packs:
+  - analysis
 ```
 
 ## Example compositions
@@ -131,8 +159,16 @@ poetry run python scripts/compose.py examples/strict-python-microservice.yml out
 - `templates/Makefile.scaffold` is the legacy generic Makefile scaffold.
 - `templates/Makefile.scaffold.app` is the application Makefile scaffold.
 - `templates/Makefile.scaffold.infra` is the infrastructure Makefile scaffold (may include no-op targets).
-- `templates/pyproject.python.ruff.snippet.toml` provides opinionated ruff defaults for Python.
+- These Makefile scaffolds are examples of intent for humans; they are not auto-applied.
+- `templates/pyproject.python.ruff.snippet.toml` provides opinionated ruff defaults for Python and is a copy/paste reference (not auto-applied).
 - `scripts/compose.py` composes YAML inputs into a single `CLAUDE.md`.
+
+## Outputs
+- Generated `CLAUDE.md` files are intended to be installed as global guardrails or committed to repos as needed.
+- Example (global install):
+  - `cp out/CLAUDE.md ~/.config/claude/CLAUDE.md`
+- Example (repo install):
+  - `cp out/CLAUDE.md ./CLAUDE.md`
 
 ## Notes
 This is an initializer scaffold. Extend the taxonomy, add targets/packs, and tailor wording to your org.
