@@ -7,7 +7,7 @@ sections:
   Workflow:
     - Keep process lightweight.
   Analysis:
-    - Enable analysis via packs when required (e.g., analysis, security).
+    - If analysis or security is requested, require enabling the corresponding pack before proceeding.
   Security:
     - Security scanning is optional unless the security pack is applied.
   Quality:

@@ -120,6 +120,7 @@ packs:
   - compliance
   - performance
   - style
+  - change-control
 ```
 
 Permissive with analysis enabled:
@@ -131,6 +132,7 @@ targets:
   - python
 packs:
   - analysis
+  - change-control
 ```
 
 ## Example compositions

@@ -1,0 +1,7 @@
+name: change-control
+kind: pack
+sections:
+  Change Control:
+    - Use Semantic Versioning (SemVer) for version numbers.
+    - Version changes must be documented in a changelog or release notes.
+    - Tag releases in version control.

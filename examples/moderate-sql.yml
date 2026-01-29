@@ -9,3 +9,4 @@ packs:
   - compliance
   - performance
   - style
+  - change-control

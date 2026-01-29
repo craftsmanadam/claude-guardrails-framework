@@ -44,3 +44,4 @@ sections:
         packs: [analysis]
   Testing:
     - "Unit testing: pytest."
+    - "Acceptance testing: pytest-bdd."
