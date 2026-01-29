@@ -7,11 +7,9 @@ sections:
   Workflow:
     - Keep process lightweight.
   Analysis:
-    - Ask during project initialization whether to enable static analysis and security scanning.
-    - If enabled, use the target defaults listed in each target section.
-    - If disabled, treat any tool defaults below as informational only.
+    - Enable analysis via packs when required (e.g., analysis, security).
   Security:
-    - Ask during project initialization whether to enable security scanning.
+    - Security scanning is optional unless the security pack is applied.
   Quality:
     - Tests are strongly encouraged but optional unless requested.
     - Target unit test coverage of 40% or better when tests are added.

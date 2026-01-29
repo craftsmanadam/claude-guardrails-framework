@@ -1,0 +1,7 @@
+name: permissive-python-analysis
+profile: permissive
+targets:
+  - base
+  - python
+packs:
+  - analysis

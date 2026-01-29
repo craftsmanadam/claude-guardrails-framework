@@ -9,8 +9,16 @@ sections:
   Analysis:
     - text: "Static analysis: tflint."
       profiles: [strict, moderate]
+    - text: "Static analysis: tflint."
+      profiles: [permissive]
+      when:
+        packs: [analysis]
     - text: "Security scanning: tfsec."
       profiles: [strict, moderate]
+    - text: "Security scanning: tfsec."
+      profiles: [permissive]
+      when:
+        packs: [security]
   Testing:
     - "Unit testing: tofu test."
     - "Coverage targets are often N/A for OpenTofu; call out limitations and request an explicit exception."

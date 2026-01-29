@@ -8,7 +8,15 @@ sections:
   Analysis:
     - text: "Static analysis: eslint."
       profiles: [strict, moderate]
+    - text: "Static analysis: eslint."
+      profiles: [permissive]
+      when:
+        packs: [analysis]
     - text: "Security scanning: npm audit."
       profiles: [strict, moderate]
+    - text: "Security scanning: npm audit."
+      profiles: [permissive]
+      when:
+        packs: [security]
   Testing:
     - "Unit testing: jest."

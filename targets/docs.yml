@@ -7,7 +7,15 @@ sections:
   Analysis:
     - text: "Static analysis: markdownlint."
       profiles: [strict, moderate]
+    - text: "Static analysis: markdownlint."
+      profiles: [permissive]
+      when:
+        packs: [analysis]
     - text: "Style/linting: vale."
       profiles: [strict, moderate]
+    - text: "Style/linting: vale."
+      profiles: [permissive]
+      when:
+        packs: [analysis]
   Testing:
     - "Documentation testing: markdownlint."

@@ -1,0 +1,10 @@
+name: moderate-node
+profile: moderate
+targets:
+  - base
+  - node
+packs:
+  - security
+  - privacy
+  - compliance
+  - performance

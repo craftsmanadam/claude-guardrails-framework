@@ -1,0 +1,11 @@
+name: moderate-sql
+profile: moderate
+targets:
+  - base
+  - sql
+packs:
+  - security
+  - privacy
+  - compliance
+  - performance
+  - style

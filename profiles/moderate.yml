@@ -12,9 +12,13 @@ sections:
     - Makefile should be scaffolded during project initialization (app or infra variant as appropriate).
     - Infra repos may implement analyze_image/start/stop as no-ops when not applicable.
   Analysis:
-    - Always use static analysis and security scanning tools.
+    - text: Always use static analysis and security scanning tools.
+      exclude_when:
+        targets: [sql]
   Security:
-    - Always use security scanning tools.
+    - text: Always use security scanning tools.
+      exclude_when:
+        targets: [sql]
   Quality:
     - Always generate unit tests for changes.
     - Target unit test coverage of 70% or better.

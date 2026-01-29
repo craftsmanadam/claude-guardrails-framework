@@ -85,12 +85,26 @@ profiles/   # baseline strictness
 - **Packs** add cross-cutting concerns (security, privacy, compliance, performance, style).
 - Output order: **profile → targets → packs → team overrides**.
 - Rules may be scoped to specific profiles using `profiles: [strict, moderate, permissive]` within a target or pack.
+- Rules may also be conditional with `when`, for example:
+  - `when: { targets: [python, microservice] }`
+  - `when: { packs: [analysis] }`
+- Rules may be excluded with `exclude_when`, for example:
+  - `exclude_when: { targets: [sql] }`
+
+## Language defaults
+- **Python**: prefer Poetry for dependency management, pydantic for data validation, and pydantic-settings for configuration.
 
 ## Quick start
 ```
 poetry install
 poetry run python scripts/compose.py examples/strict-python-microservice.yml out/CLAUDE.md
 ```
+
+## Example compositions
+- `examples/strict-python-microservice.yml`
+- `examples/moderate-node.yml`
+- `examples/moderate-sql.yml`
+- `examples/permissive-python-analysis.yml`
 
 ## Opinionated extras to consider
 - **Risk tiering**: production vs. sandbox; higher tiers enforce stricter defaults.

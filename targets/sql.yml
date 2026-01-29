@@ -7,5 +7,9 @@ sections:
   Analysis:
     - text: "Static analysis: sqlfluff."
       profiles: [strict, moderate]
+    - text: "Static analysis: sqlfluff."
+      profiles: [permissive]
+      when:
+        packs: [analysis]
   Testing:
     - "Unit testing: pgTAP."
