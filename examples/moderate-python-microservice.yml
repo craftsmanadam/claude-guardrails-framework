@@ -1,0 +1,11 @@
+name: moderate-python-microservice
+profile: moderate
+targets:
+  - base
+  - python
+  - microservice
+packs:
+  - security
+  - change-control
+  - analysis
+  - style

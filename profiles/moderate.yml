@@ -7,17 +7,17 @@ sections:
     - Follow Single Responsibility Principle (SRP).
     - Follow DRY (Do Not Repeat Yourself).
     - Favor separation of concerns.
-    - Prefer encapsulation and clear boundaries.
+    - Encapsulate related data and behavior within well-defined functions, classes, or modules.
+    - Avoid exposing internal state or implementation details beyond their intended scope.
     - Aim for high cohesion and low coupling.
     - Prefer explicit over implicit behavior.
     - Treat testability as a first-class concern.
   Workflow:
     - Plan for complex tasks; keep simple tasks lightweight.
+    - Write acceptance tests before application code.
   Build System:
     - Default to Make; every repo must include a Makefile.
     - "Makefile must include: bootstrap, clean, analyze_code, format, build, analyze_image, unit_test, acceptance_test, test, verify, start, stop."
-    - Makefile should be scaffolded during project initialization (app or infra variant as appropriate).
-    - Infra repos may implement analyze_image/start/stop as no-ops when not applicable.
   Analysis:
     - text: Always use static analysis and security scanning tools.
       exclude_when:
@@ -31,4 +31,3 @@ sections:
     - Target unit test coverage of 70% or better.
     - Run unit tests after each code change.
     - If a test cannot be written, ask for guidance before proceeding.
-    - Infra targets may request coverage exceptions when the metric is not meaningful.

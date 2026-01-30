@@ -8,7 +8,9 @@ sections:
     - Follow Single Responsibility Principle (SRP).
     - Follow DRY (Do Not Repeat Yourself).
     - Favor separation of concerns.
-    - Prefer encapsulation and clear boundaries.
+    - Encapsulate related data and behavior within well-defined functions, classes, or modules.
+    - Avoid exposing internal state or implementation details beyond their intended scope.
+    - Interactions between components should occur through well-defined inputs and outputs.
     - Aim for high cohesion and low coupling.
     - Prefer explicit over implicit behavior.
     - Fail fast on invalid states or inputs.
@@ -16,12 +18,12 @@ sections:
     - Treat testability as a first-class concern.
   Workflow:
     - Use planning for multi-step tasks and track progress.
-    - Prefer minimal changes with clear rationale.
+    - Make the smallest set of changes necessary to achieve the stated goal.
+    - Write acceptance tests before application code.
+    - "Gherkin must be reviewed by a human before production code is written."
   Build System:
     - Default to Make; every repo must include a Makefile.
     - "Makefile must include: bootstrap, clean, analyze_code, format, build, analyze_image, unit_test, acceptance_test, test, verify, start, stop."
-    - Makefile should be scaffolded during project initialization (app or infra variant as appropriate).
-    - Infra repos may implement analyze_image/start/stop as no-ops when not applicable.
   Analysis:
     - text: Always use static analysis and security scanning tools.
       exclude_when:
@@ -31,9 +33,8 @@ sections:
       exclude_when:
         targets: [sql]
   Quality:
-    - Always generate unit tests for changes.
+    - Always generate unit tests for changes for application code.
     - Target unit test coverage of 90% or better.
     - Run unit tests after each code change.
     - If a test cannot be written, ask for guidance before proceeding.
-    - Infra targets may request coverage exceptions when the metric is not meaningful.
     - Document non-obvious decisions.

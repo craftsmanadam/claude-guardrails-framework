@@ -21,7 +21,7 @@ sections:
     - "Include deprecation warnings in response headers with RFC 1123 dates (example: Deprecation: true, Sunset: Wed, 11 Nov 2026 11:11:11 GMT)."
     - Document migration guides for each major version change.
     - "Default behavior: if no version specified, return 400 Bad Request."
-    - For internal service-to-service APIs, prefer contract testing when consumer and provider are deployed together; otherwise use versioning.
+    - For internal service-to-service APIs, prefer contract testing; otherwise use versioning.
     - Publish an OpenAPI/Swagger spec for every service.
     - Expose interactive API docs in non-production; in production, require auth-gating.
     - Version API docs alongside API versions.
