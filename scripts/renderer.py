@@ -3,17 +3,49 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parents[1]
 
 
+def _normalize_subitems(items):
+    if not items:
+        return []
+    normalized = []
+    for sub in items:
+        if isinstance(sub, str):
+            normalized.append(sub)
+            continue
+        if isinstance(sub, dict) and "text" in sub:
+            normalized.append(sub["text"])
+            continue
+        if isinstance(sub, dict) and len(sub) == 1:
+            key, value = next(iter(sub.items()))
+            if isinstance(key, str) and isinstance(value, list):
+                normalized.append(key)
+                normalized.extend(_normalize_subitems(value))
+                continue
+        raise ValueError(f"Invalid subitem: {sub}")
+    return normalized
+
+
 def normalize_item(item):
     if isinstance(item, str):
-        return {"text": item, "when": None, "exclude_when": None}
+        return {"text": item, "when": None, "exclude_when": None, "subitems": []}
     if isinstance(item, dict) and "text" in item:
         when = item.get("when")
         exclude_when = item.get("exclude_when")
+        subitems = _normalize_subitems(item.get("items") or item.get("subitems"))
         return {
             "text": item["text"],
             "when": when,
             "exclude_when": exclude_when,
+            "subitems": subitems,
         }
+    if isinstance(item, dict) and len(item) == 1:
+        key, value = next(iter(item.items()))
+        if isinstance(key, str) and isinstance(value, list):
+            return {
+                "text": key,
+                "when": None,
+                "exclude_when": None,
+                "subitems": _normalize_subitems(value),
+            }
     raise ValueError(f"Invalid rule item: {item}")
 
 
@@ -64,11 +96,12 @@ def merge_sections(units, active_profile: str, active_targets, active_packs):
                 ):
                     continue
                 text = normalized["text"]
-                key = (heading, text)
+                subitems = normalized.get("subitems") or []
+                key = (heading, text, tuple(subitems))
                 if key in seen:
                     continue
                 seen.add(key)
-                bucket.append(text)
+                bucket.append({"text": text, "subitems": subitems})
     return merged
 
 
@@ -77,7 +110,11 @@ def render_sections(merged):
     for heading in merged:
         lines.append(f"## {heading}")
         for item in merged[heading]:
-            lines.append(f"- {item}")
+            text = item["text"]
+            lines.append(f"- {text}")
+            subitems = item.get("subitems") or []
+            for sub in subitems:
+                lines.append(f"  - {sub}")
         lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 
