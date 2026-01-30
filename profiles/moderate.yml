@@ -28,6 +28,10 @@ sections:
         targets: [sql]
   Quality:
     - Always generate unit tests for changes.
-    - Target unit test coverage of 70% or better.
-    - Run unit tests after each code change.
-    - If a test cannot be written, ask for guidance before proceeding.
+    - Target unit test coverage of 90% or better at the project level.
+    - Coverage exemptions are acceptable for:
+        - Configuration/wiring code (e.g., settings.py, config modules)
+        - Framework integration points (e.g., middleware registration, app initialization)
+        - Error handling paths that require specific runtime conditions
+    - Run unit tests after each logical change (before committing).
+    - If application logic cannot be tested, proceed but document the lack of testing and why.

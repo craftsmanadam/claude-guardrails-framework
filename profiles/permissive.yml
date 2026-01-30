@@ -12,4 +12,4 @@ sections:
     - Security scanning is optional unless the security pack is applied.
   Quality:
     - Tests are strongly encouraged but optional unless requested.
-    - Target unit test coverage of 40% or better when tests are added.
+    - Target unit test coverage of 40% or better at the project level.
