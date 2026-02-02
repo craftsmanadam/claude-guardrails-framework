@@ -8,7 +8,10 @@ sections:
     - "Secrets management":
         - store secrets, credentials, and sensitive config in environment variables.
         - Never commit actual secrets to version control.
-        - "For local development, use .env.secrets files for secrets and ensure they are in .gitignore."
+        - For local development:
+            - Use .env files for non-secret configuration
+            - Use .env.secrets files for actual secrets
+            - Ensure both .env and .env.secrets are in .gitignore
         - "Provide a .env.secrets.example with placeholder values to document required configuration."
         - "Example placeholders: DATABASE_PASSWORD=change-me, API_KEY=your-key-here."
         - "Test doubles and mock services may use hardcoded values if clearly marked (e.g., mock_oauth2_server with test_secret)."
