@@ -1,0 +1,31 @@
+name: multi-agent-ai
+kind: target
+sections:
+  Agent Architecture:
+    - Define each agent with a single, explicit responsibility.
+    - Require documented handoff boundaries and input/output contracts.
+    - Prevent overlapping authority across agents unless the overlap is intentional and documented.
+    - Prefer deterministic orchestration over unconstrained agent delegation.
+  Tooling and Actions:
+    - Require per-agent tool allowlists.
+    - Disallow implicit side effects from reasoning-only agents.
+    - Require explicit approval before destructive, irreversible, or externally visible actions.
+    - Prefer idempotent tool operations where practical.
+  External APIs:
+    - Use vendor-neutral provider boundaries.
+    - Isolate provider-specific SDK logic behind adapters.
+    - Require bounded retries, explicit timeouts, and rate-limit handling.
+    - Treat malformed or partial provider responses as first-class failure cases.
+  Prompt and Context Discipline:
+    - Keep prompts and agent instructions in version control.
+    - Version prompt changes that affect behavior materially.
+    - Bound context growth and define what each agent is allowed to see.
+    - Prefer structured handoff artifacts over passing raw transcript history everywhere.
+  Observability:
+    - Log agent selection, handoffs, tool calls, retries, and failures.
+    - Require correlation IDs or equivalent trace identifiers across a workflow.
+    - Do not log secrets or sensitive payloads in raw form.
+  Safety:
+    - Cap recursion, retry, and autonomous planning depth.
+    - Fail closed when tool results are ambiguous or state is inconsistent.
+    - Require human review for high-impact actions.

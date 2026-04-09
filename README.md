@@ -5,10 +5,10 @@ A composable framework for generating organization-wide `CLAUDE.md` guardrails f
 ## Why
 Teams need consistent, auditable developer guardrails. This repo defines:
 - **Profiles**: strict / moderate / permissive baselines.
-- **Targets**: domain or stack-specific rules (base, python, node, docs, sql, opentofu, etc.), including default analysis and testing tools.
+- **Targets**: domain or stack-specific rules (base, python, node, docs, sql, opentofu, multi-agent-ai, stateful-ai, etc.), including default analysis and testing tools.
 - **Packs**: focused rule bundles (security, privacy, compliance, performance, style, etc.).
 
-You can compose these into a single global `CLAUDE.md` for a team, e.g. `strict + python + microservice + security + privacy`.
+You can compose these into a single global `CLAUDE.md` for a team, e.g. `strict + python + microservice + security + privacy` or `strict + python + multi-agent-ai + stateful-ai + security`.
 
 
 ## Outputs
@@ -89,7 +89,7 @@ profiles/   # baseline strictness
 
 ## Composition model
 - **Profile** sets the baseline behavior and default safety posture.
-- **Targets** add stack-specific rules (python, node, docs, sql, opentofu, etc.) and declare default analysis/testing tools.
+- **Targets** add stack-specific rules (python, node, docs, sql, opentofu, multi-agent-ai, stateful-ai, etc.) and declare default analysis/testing tools.
 - **Packs** add cross-cutting concerns (security, privacy, compliance, performance, style).
 - Output order: **profile → targets → packs → team overrides**.
 - Rules may also be conditional with `when`, for example:
@@ -140,6 +140,7 @@ packs:
 - `examples/moderate-node.yml`
 - `examples/moderate-sql.yml`
 - `examples/permissive-python-analysis.yml`
+- `examples/strict-python-multi-agent-stateful-ai.yml`
 
 ## Opinionated extras to consider
 - **Risk tiering**: production vs. sandbox; higher tiers enforce stricter defaults.

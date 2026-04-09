@@ -1,0 +1,31 @@
+name: stateful-ai
+kind: target
+sections:
+  State Model:
+    - Define canonical state explicitly and distinguish it from derived summaries or transient working memory.
+    - Require clear ownership for each persisted state category.
+    - Prefer structured, machine-validated state for any data that affects future behavior.
+    - Do not let prompt text become the authoritative source of persisted state.
+  State Changes:
+    - Record meaningful state mutations in an auditable form.
+    - Require state updates to be attributable to a triggering action, tool result, or approved agent handoff.
+    - Prefer append-friendly history or mutation logs for important state changes.
+    - Fail rather than silently overwrite ambiguous or conflicting state.
+  Memory and Retrieval:
+    - Separate canonical facts from compressed memory summaries.
+    - Treat summaries as derived artifacts that may need regeneration.
+    - Require provenance for retrieved memory used in important decisions.
+    - Prefer retrieval of relevant summaries or facts over replaying entire histories.
+  Session and Event Records:
+    - Persist enough session history to support debugging, replay, recap, and evaluation.
+    - Persist meaningful agent handoff artifacts when they affect canon, decisions, or evaluation.
+    - Persist significant tool outcomes when they materially affect state.
+    - Avoid retaining ephemeral intermediate reasoning that has no operational or evaluation value.
+  Evaluation and Reproducibility:
+    - Treat evaluation artifacts as first-class project data.
+    - Retain scenario definitions, run outputs, and evaluation notes needed to compare behaviors over time.
+    - Record the prompt, ruleset, and relevant configuration versions used for important evaluations.
+  Retention and Data Minimization:
+    - Persist only what is necessary for continuity, auditability, and evaluation.
+    - Avoid storing raw sensitive data unless it is required.
+    - Define what categories of transient data must not be retained long-term.

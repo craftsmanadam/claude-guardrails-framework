@@ -1,0 +1,13 @@
+name: strict-python-multi-agent-stateful-ai
+profile: strict
+targets:
+  - base
+  - python
+  - multi-agent-ai
+  - stateful-ai
+packs:
+  - security
+  - privacy
+  - performance
+  - change-control
+  - analysis
